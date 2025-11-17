@@ -7,26 +7,26 @@
             InitializeComponent();
         }
 
-        private void Button_Clicked(System.Object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
             try
             {
-
                 double etanol = Convert.ToDouble(txt_etanol.Text);
                 double gasolina = Convert.ToDouble(txt_gasolina.Text);
 
                 string msg = "";
 
-                if(etanol <= (gasolina * 0.7) )
+                if(etanol <= (gasolina * 0.7))
                 {
                     msg = "O etanol está compensando";
                 } else
                 {
-                    msg = "A gasolina está compensando.";
+                    msg = "A gasolina está compensando";
                 }
 
-            }
-            catch(Exception ex)
+                DisplayAlert("Calculado", $"{msg} para o seu {txt_marca.Text} {txt_modelo.Text}.", "OK");
+
+            } catch(Exception ex)
             {
                 DisplayAlert("Ops", ex.Message, "Fechar");            
             }
